@@ -31,8 +31,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   ///
-  static const batteryMethodChannel = MethodChannel(
-      'com.sabikrahat.flutter_method_channel_playground/battery');
+  static const batteryMethodChannel =
+      MethodChannel('com.sabikrahat.flutter_method_channel_playground/battery');
 
   ///
   String? batteryLevelStatus;
@@ -44,7 +44,8 @@ class _HomePageState extends State<HomePage> {
         'name': 'Sabik Rahat',
         'task': 'Flutter Method Channel Demo',
       };
-      final String res = await batteryMethodChannel.invokeMethod('getBatteryLevel', arguments);
+      final String res =
+          await batteryMethodChannel.invokeMethod('getBatteryLevel', arguments);
       debugPrint('Method Channel Response: $res');
       setState(() => batteryLevelStatus = res);
     } on PlatformException catch (e) {
@@ -65,6 +66,7 @@ class _HomePageState extends State<HomePage> {
               batteryLevelStatus == null
                   ? 'Tap to get battery level'
                   : batteryLevelStatus!,
+              textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 20),
             ),
             const SizedBox(
